@@ -10,7 +10,7 @@ import { fadeIn } from "../../../variants";
 const EventBox = ({ events }) => {
 	return (
 		<motion.div
-			variants={fadeIn('up', 0.4)} 
+			variants={fadeIn('up', 0.6)} 
 			initial='hidden'
 			whileInView={'show'}
 			viewport={{once:false, amount: 0.3}}
