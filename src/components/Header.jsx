@@ -2,7 +2,7 @@
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <header className="fixed w-full z-50">Header</header>
   )
 }
 
