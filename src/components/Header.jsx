@@ -5,6 +5,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { fadeIn } from "../../variants"
+import NavMobile from "./NavMobile"
+import Nav from "./Nav"
 
 
 
@@ -25,7 +27,7 @@ const Header = () => {
   },[]);
 
   return (
-    <header className={`fixed w-full z-50 ${active ? 'bg-[#030315] py-6' : 'bg-transparent py-8'}`}>
+    <header className={`fixed w-full z-50 transition-all ${active ? 'bg-[#030315] py-6' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto flex flex-col xl:flex-row items-center justify-between">
         {/* logo */}
         <Link href={'#'} className="relative flex w-[226px] h-[37.64px] transition-all xl:mb-0">
@@ -37,11 +39,13 @@ const Header = () => {
         </Link>
         {/* nav */}
         <nav>
-          nav
+          <Nav 
+            containerStyles='hidden xl:flex items-center gap-x-8'
+          />
         </nav>
         {/* nav mobile */}
         <nav>
-          nav mobile
+          <NavMobile />
         </nav>
         {/* menu btn */}
         <div>
