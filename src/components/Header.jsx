@@ -8,6 +8,7 @@ import { fadeIn } from "../../variants"
 import NavMobile from "./NavMobile"
 import Nav from "./Nav"
 import MenuBtn from "./MenuBtn"
+import Socials from "./Socials"
 
 
 
@@ -55,7 +56,10 @@ const Header = () => {
         </div>
         {/* socials */}
         <div>
-          socials icons
+          <Socials 
+            containerStyles='flex tex-[24px] gap-x-4' 
+            iconStyles='hover:text-accent transition-all'
+          />
         </div>
       </div>
     </header>
