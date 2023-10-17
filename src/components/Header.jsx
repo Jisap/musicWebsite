@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import { fadeIn } from "../../variants"
 import NavMobile from "./NavMobile"
 import Nav from "./Nav"
+import MenuBtn from "./MenuBtn"
 
 
 
@@ -35,6 +36,7 @@ const Header = () => {
             src={'/assets/header/logo.svg'} 
             fill 
             className="object-contain"
+            alt='logo'
           />
         </Link>
         {/* nav */}
@@ -48,8 +50,8 @@ const Header = () => {
           <NavMobile />
         </nav>
         {/* menu btn */}
-        <div>
-          menu btn
+        <div className="absolute right-7 top-9 z-10 xl:hidden">
+          <MenuBtn />
         </div>
         {/* socials */}
         <div>
