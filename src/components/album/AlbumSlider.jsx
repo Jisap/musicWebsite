@@ -30,7 +30,7 @@ const AlbumSlider = () => {
           speed={1000}
           spaceBetween={80}
           //allowTouchMove={false} 
-          thumbs={{ swiper: thumbsSwiper }}
+          thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
           modules={[FreeMode, Navigation, Thumbs, EffectCoverflow]}
           coverflowEffect={{
             rotate: 50,
@@ -103,7 +103,59 @@ const AlbumSlider = () => {
           })}
         </Swiper>
         {/* thumb slider */}
-        <Swiper>thumb slider</Swiper>
+        <Swiper 
+          onSwiper={setThumbsSwiper}
+          breakpoints={{
+            320: {
+              slidesPerView: 2,
+              spaceBetween:10
+            },
+            425: {
+              slidesPerView: 2,
+              spaceBetween: 30
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 30
+            },
+            1319: {
+              slidesPerView: 5,
+              spaceBetween: 30
+            }
+          }}
+          modules={[FreeMode, Navigation, Thumbs]}
+          spaceBetween={20}
+          slidesPerView={5}
+          freeMode={true}
+          watchSlidesProgress={true}
+          className="thumb-slider"
+        >
+          {
+            data?.map((thumb, index) => {
+              return (
+                <SwiperSlide 
+                  key={index} 
+                  className="relative group overflow-hidden border-2 border-transparent w-[254px] rounded-[10px]"
+                >
+                  {/* img */}
+                  <div className="relative w-[195px] h-[195px] sm:w-[360px] sm:h-[360px] md:w-[240px] md:max-h-[240px] cursor-pointer">
+                    <Image 
+                      src={thumb.img}
+                      fill
+                      priority
+                      alt='thumb'
+                      className="object-contain group-hover:scale-105 transition-all duration-300"
+                    />
+                  </div>
+                </SwiperSlide>
+              )
+            })
+          }
+        </Swiper>
       </div>
     </>
     
