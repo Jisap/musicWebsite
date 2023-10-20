@@ -1,8 +1,27 @@
+"use client"
 
+import SectionHeader from "../SectionHeader";
+import PostList from "./PostList";
 
-const Blog = () => {
+const getPost = async () => {
+   const res = await fetch('http://localhost:4000/posts');
+   return res.json();
+};
+
+const Blog = async () => {
+   
+   const posts = await getPost();
+   
    return (
-      <div>Blog</div>
+      <section className='section' id='blog'>
+         <div className="container mx-auto">
+            <SectionHeader 
+               pretitle='Our Blog' title='Last News'
+            />
+            {/* post list */}
+            <PostList posts={posts} />
+         </div>
+      </section>
    )
 }
 
