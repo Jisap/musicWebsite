@@ -4,22 +4,23 @@ import Image from "next/image"
 import { useState } from "react"
 import { AudioPlayer } from "react-audio-play"
 import { Swiper, SwiperSlide } from "swiper/react"
-import useSWR from "swr"
+//import useSWR from "swr"
 import { EffectCoverflow, FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
+import table from'../../../_data/db.json'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
+//const fetcher = (url) => fetch(url).then((res) => res.json())
 
 const AlbumSlider = () => {
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  const { data, error } = useSWR('http://localhost:4000/albums', fetcher);  
+  // const { data, error } = useSWR('http://localhost:4000/albums', fetcher);  
   
-  if( error ) return 'Failed to fetch data';
-  if(!data ) return 'Loading...';
+  // if( error ) return 'Failed to fetch data';
+  // if(!data ) return 'Loading...';
 
   return (
     <>
@@ -41,7 +42,7 @@ const AlbumSlider = () => {
           }}
           className="album-slider"
         >
-          {data.map((album) => {
+          {table.albums.map((album) => {
             return (
               <SwiperSlide key={album.id} className="mb-12">
                 <div className="w-full bg-secondary/80 rounded-[10px] flex flex-col xl:flex-row items-center p-6 xl:p-12 gap-x-12">
@@ -135,7 +136,7 @@ const AlbumSlider = () => {
           className="thumb-slider"
         >
           {
-            data?.map((thumb, index) => {
+            table.albums?.map((thumb, index) => {
               return (
                 <SwiperSlide 
                   key={index} 
