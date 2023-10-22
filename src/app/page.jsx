@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import Newsletter from '@/components/Newsletter'
 import Player from '@/components/Player'
@@ -16,7 +17,7 @@ export default function Home() {
       <Albums />
       <Blog />
       <Newsletter />
-      <div className='h-[4000px]'></div>
+      {/* <div className='h-[4000px]'></div> */}
     </main>
   )
 }
